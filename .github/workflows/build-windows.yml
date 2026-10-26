@@ -14,18 +14,14 @@ jobs:
     steps:
       - name: Descargar el proyecto
         uses: actions/checkout@v4
-
       - name: Preparar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Instalar dependencias
         run: npm install
-
       - name: Crear instalador
-        run: npm run dist
-
+        run: npm run dist -- --publish never
       - name: Guardar una copia descargable del instalador
         uses: actions/upload-artifact@v4
         with:
@@ -33,7 +29,6 @@ jobs:
           path: dist/*.exe
           if-no-files-found: error
           retention-days: 14
-
       - name: Publicar el instalador para compartirlo
         uses: softprops/action-gh-release@v3
         with:

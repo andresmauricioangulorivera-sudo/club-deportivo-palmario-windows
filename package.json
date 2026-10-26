@@ -1,0 +1,37 @@
+{
+  "name": "club-deportivo-palmario",
+  "version": "1.0.0",
+  "description": "Aplicación de escritorio de Club Deportivo Palmario",
+  "main": "main.js",
+  "author": "Club Deportivo Palmario",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^36.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.palmario.clubdeportivo",
+    "productName": "Club Deportivo Palmario",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Club Deportivo Palmario"
+    }
+  }
+}
